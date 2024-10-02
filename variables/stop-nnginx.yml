@@ -1,0 +1,17 @@
+- name: stopping nginx server and service
+  hosts: dbservers
+  become: true
+  vars:
+   servicestate: stopped
+   softwarestate: absent
+   user: bob
+   software: nginx
+  tasks:
+  - name: remove nginx
+    apt:
+     name: "{{ software }}"
+     state: "{{ softwarestate }}"
+  - name: stop nginx services
+    service:
+     name: "{{ software }}"
+     state: "{{ servicestate }}"

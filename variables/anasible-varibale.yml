@@ -1,0 +1,19 @@
+- name: Variables playbook
+  hosts: all
+  become: true
+  vars:
+      state: latest
+      user: bob
+      software: nginx
+  tasks:
+  - name: Add the user {{ user }}
+    ansible.builtin.user:
+      name: "{{ user }}"
+  - name: Upgrade all apt packages
+    apt:
+      force_apt_get: yes
+      upgrade: dist
+  - name: Install the {{ state }} of package "nginx"
+    apt:
+      name: "{{ software }}"
+      state: "{{ state }}"

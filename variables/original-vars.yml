@@ -1,0 +1,40 @@
+- hosts: webservers
+  become: true
+  tasks:
+  - name: Create group
+    group:
+     name: pkadmin
+     gid: 401 #meaning group id
+      
+  - name: create user
+    user:
+     name: tk
+     state: present
+     uid: 400      #meaning user id
+     groups: pkadmin #meaning you have to create group first
+     shell: /bin/bash
+
+  - name: create  file
+    file:
+     path: /opt/webconfig.conf
+     state: touch
+     owner: tk #meaning you have to create user and group first
+     group: pkadmin
+
+  - name: Creating folder
+    file:
+     path: /opt/webfile
+     state: directory
+     owner: tk 
+     group: pkadmin
+     # add other task to waht we have  already installing apache and doanloading some files from the intenrt
+  - name: install apache2 and download the files
+    apt:
+     name: apache2
+     state: present
+
+  - name: start the apache2 service
+    service:
+     name: apache2
+     state: started
+     enabled: yes

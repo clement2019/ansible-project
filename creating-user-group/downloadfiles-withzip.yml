@@ -1,0 +1,15 @@
+
+- hosts        : webservers
+  gather_facts : no
+  vars:
+   project_root: "https://github.com/ShaifArfan/one-page-website-html-css-project/archive/refs/heads/"
+  tasks:
+  - get_url:
+     url="{{project_root}}/master.zip"
+     dest="{{project_root}}/master.zip"
+  register: get_master
+
+  - debug:
+
+     msg="master was downloaded"
+    when: get_master|changed

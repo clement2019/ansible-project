@@ -1,0 +1,14 @@
+- hosts: dbservers
+  become: true
+
+  tasks:
+  - name: Update APT package manager repositories cache
+    apt:
+      update_cache: yes
+
+  - name: Install OpenJDK Java
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+     openjdk-17-jre

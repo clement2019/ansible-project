@@ -1,0 +1,33 @@
+
+- name: Install Apache and other packages
+  hosts: dbservers
+  become: yes
+  vars:
+    softwarestate: latest
+    servicestate: started
+    package1: nginx
+    package2: apache2   
+  gather_facts: false
+
+  tasks:
+  - name: Install nginx 
+    apt:
+     name: "{{ package1 }}"
+     state: "{{ softwarestate }}"
+    register: result
+
+  - name: check the nginx service
+    service:
+     name: "{{ package1 }}"
+     state: "{{ servicestate }}"
+
+  - name: Install apache2
+    apt:
+     name: "{{ package2 }}"
+     state: "{{ softwarestate }}"
+    register: result
+
+  - name: check the apache2  service
+    service:
+     name: "{{ package2 }}"
+     state: "{{ servicestate }}"
