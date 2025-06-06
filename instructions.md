@@ -1,11 +1,11 @@
 SETTING UP CONNECTION BETWEEN THE CONTROLLER AND THE TARGETS MACHINES
 
-Anasible should be able to communicate to the other servers through passwordless authentication.. That's the only cognition
+Anasible should be able to communicate to the other servers through passwordless authentication.. That's the only condition
 If ansible can do that it can do anything
 
 # always talk to the private ip address of the target machines
 
-Copy it and do ssh to that machine see whaT HAPPENS
+Copy it and do ssh to that machine see what happens
 
 ssh  <private-ip>
 
@@ -37,14 +37,14 @@ ls
 
 authorized_keys  id_ed25519  id_ed25519.pub 
 
-#carryout
+# carry out
 cat id_ed25519.pub
 
 # You can share the id_ed25519.pub.pub but never share the id_ed25519 or id_rsa
 
 #Always go with the public key to communicate with other servers
 
-#You dont want to communicate using the password but u can use the public #key to talk to the target servers using the ansible passwordless methods
+#You dont want to communicate using the password but u can use the public key to talk to the target servers using the ansible passwordless methods
 
 Cat /home/ubuntu/.ssh/id_ed25519.pub
 
@@ -118,10 +118,11 @@ Do the same thing for the green machines
 
 ansible all -i inventory -m ping
 
-#the comma tells ansible that this is an inventory files and the ping shows the type of module am using
+# the comma tells ansible that this is an inventory files and the ping shows the type of module am using
 
 So far we have shown that we can ssh to this machine through this  and show that we can initiate connect through the controller machines and target machines but these is not allowed in corporate settings we should be able to put them in a inventory files or groups, so we need to use inventory file
 
+# create inventory file as shown below
 touch inventory
 
 vi inventory
@@ -135,11 +136,11 @@ In shell u cal iot shell script
 In python u call python files
 In ansible u call ansible playbooks
 
-#Is it compulsory to always write ansible playbooks No, u may want to do simple task then #use adhoc commands such as below 
+# Is it compulsory to always write ansible playbooks No, u may want to do simple task then #use adhoc commands such as below 
 
 ansible -i inventory all -a "ls -lart"
 
-#to create a file text.txt on all machines
+# to create a file text.txt on all machines
 ansible -i inventory all -a "touch text.txt"
 
 #now make directory cloud on all machines
@@ -168,7 +169,7 @@ Now create an inventory files that stores the Ip address of your target servers
 
 /etc/ansible/hosts/
 
-#But you can do it anywhere for now bc its not always convenient from that location
+# But you can do it anywhere for now bc its not always convenient from that location
 vim inventory
 
 
@@ -279,7 +280,7 @@ Vi httpd.yml
 
 ansible-playbook -i inventory httpd.yml --check
 
-#now add service to the playbook
+# now add service to the playbook
 vim httpd.yml
 
 - hosts: webservers

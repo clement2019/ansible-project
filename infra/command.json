@@ -1,0 +1,2 @@
+# Before running your ansible controloer plybook or adhoc commens make sure the
+ these servers are created the two remote servers and the ansoble master controller uysi g terraform
