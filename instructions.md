@@ -78,10 +78,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBKeIzvy7K1dNWsbFzAHDBjmlpQOOQ0QIGLf1bicKH4v
 
 # Now go back to the ansible controller and do ssh again to the target machine
 
-
-
-
-#The above will generate public and private key for you, it implies that i can comfortably ssh into these machines
+# The above will generate public and private key for you, it implies that i can comfortably ssh into these machines
 
 Second phase
 I need to confirm that the user aM WORKING WITH HAS SUDO ACCESS
