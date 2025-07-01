@@ -1,6 +1,6 @@
-# Welcome to an Ansible project,In this project i showed the integration of aws services, terraform ansible.It guides you through the workings of ansible adhoc commands, ansible playbook, ansible handlers, ansible galaxy roles, ansible optimisation using ansible varibles.Ansible uses the push mode configuration model mechanism.It showcases how ansible pushes adhoc commands for single task and in case of multiple task using ansible playbook all to remote servers.The ansible controlller and the remote servers was provisioned using terraform(iac)
+#### Welcome to an Ansible project,In this project i showed the integration of aws services, terraform ansible.It guides you through the workings of ansible adhoc commands, ansible playbook, ansible handlers, ansible galaxy roles, ansible optimisation using ansible varibles.Ansible uses the push mode configuration model mechanism.It showcases how ansible pushes adhoc commands for single task and in case of multiple task using ansible playbook all to remote servers.The ansible controlller and the remote servers was provisioned using terraform(iac)
 
-# Project Directories 📂
+### Project Directories 📂
 
 Infra: Explore Terraform scripts for deploying three servers(three ec2 instances) named as ansible-controler, remote_server1 and remotes server2) on AWS.
 
@@ -14,14 +14,14 @@ ansible-roles: Implement ansible roles for files management in a project when th
 
 ansible-variables: Enhanced code optimisation using ansible variables.
 
-# Getting Started 🚀
+### Getting Started 🚀
 To run locally, clone the repository:
 
 git clone https://github.com/clement2019/ansible-project.git
 
 Explore the Directories: Navigate into each directory to find detailed scripts,yaml files, and configurations on terraform and ansible.
 
-# Tools and services Explored 🛠️
+### Tools and services Explored 🛠️
 IAM user: Created an Iam user with administrative access
 Aws cli: install aws cli thios allows you to be able to intercte with aws insfrastructure
 
@@ -31,24 +31,24 @@ Ansible : For configuration managment of filesand soaftre deployment into the re
 
 To implement this project, follow the step-by-step guide in our as shown below. Learn how each tool plays a crucial role in achieving the project excellence.
 
-# confrim aws cli was installed on the local machine
+### confirm aws cli was installed on the local machine
 aws --version
-# confirm authentication into aws cloud
+### confirm authentication into aws cloud
 aws configure: For authentication into aws cloud using 
 access_key: 
 secret_key:
 Region:
 formart:
 
-# run this comand
+### run this comand
 aws s3 ls
 aws sts get-caller-identity
 
-After cloning the project carry out this comamnd
+### After cloning the project carry out this comamnd
 cd ansible-project
-# now 
+### now 
 cd infra
-# Want to deploy it to the cloud?
+### Want to deploy it to the cloud?
 cd infra
 
 terraform init
@@ -63,14 +63,14 @@ terraform apply --auto-approve
 
 ![Image](https://github.com/user-attachments/assets/720a6991-ab74-4673-be75-3d1c7ac13bb7)
 
-# Visit the aws cloud and see the three servers provisioed as shown beloe
+### Visit the aws cloud and see the three servers provisioned as shown beloe
 
 ![Image](https://github.com/user-attachments/assets/714a0119-af32-40a5-ad50-cf3141e2acb3)
 
-# now connect to the ansible controller machine that has the script already ruuning on it, using ssh connection. as shown below
+### now connect to the ansible controller machine that has the script already ruuning on it, using ssh connection. as shown below
 
 ![Image](https://github.com/user-attachments/assets/2e1a8989-4925-446a-a39c-de7d2d17403c)
 
-# cd to the doanloads folder locally on the vscode to connect to the aisnle machines as shown below
+### cd to the doanloads folder locally on the vscode to connect to the aisnle machines as shown below
 
 ![Image](https://github.com/user-attachments/assets/467f741a-6f14-4c95-8ae7-e07196351bd8)
