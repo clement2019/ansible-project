@@ -1,0 +1,7 @@
+- name: Configure nginx on remote ubuntu  dbservers
+  hosts: dbservers
+  become: yes
+
+  roles:
+  - nginx_role
+

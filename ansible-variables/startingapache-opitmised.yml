@@ -1,0 +1,23 @@
+- name: installation of "{{appname}}"
+  hosts: all
+  become: true
+  vars:
+   servicestate: started
+   appstate: present
+   appname: apache2
+   upgradestatus: yes
+  tasks:
+  - name: Update and upgrade apt packages
+    apt:
+      upgrade: "{{upgradestatus}}"
+      update_cache: "{{upgradestatus}}"
+  - name: installing "{{appname}}"
+    apt: 
+      name: "{{appname}}"
+      state: "{{appstate}}"
+
+  - name: checking for "{{appname}}" service
+    service:
+      name: "{{appname}}"
+      state: "{{servicestate}}"
+      enabled: yes

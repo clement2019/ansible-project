@@ -1,4 +1,4 @@
-- name: Install Apache on RHEL server
+- name: Install Apache on the servers
   hosts: all
   tasks:
    - name: Install latest version of Apache

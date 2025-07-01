@@ -39,21 +39,21 @@
      state: started
      enabled: yes
 
- - name: Download files
-   ansible.builtin.get_url:
+  - name: Download files
+    ansible.builtin.get_url:
     url: https://github.com/ShaifArfan/one-page-website-html-css-project.git
     dest: /var/www/html
     method: "get"
-    remote_src: yes    # ansible needs to know that this giuy master.zip will be available on the remote machine
+    remote_src: yes    # ansible needs to know that this guy master.zip will be available on the remote machine
 
- - name: Unarchive a file that needs to be downloaded (added in 2.0)
-  ansible.builtin.unarchive:
+  - name: Unarchive a file that needs to be downloaded (added in 2.0)
+    ansible.builtin.unarchive:
     src: https://github.com/ShaifArfan/one-page-website-html-css-project/archive/refs/heads/master.zip
     dest: /var/www/html
     remote_src: yes
 
- - name: copy the docwnloaded contents into /var/www/html
-   shell: |
+  - name: copy the docwnloaded contents into /var/www/html
+    shell: |
           cd /var/www/html && cp -r one-page-website-html-css-project-master/* /var/www/html/
  
 

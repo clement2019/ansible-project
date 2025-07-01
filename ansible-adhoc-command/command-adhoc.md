@@ -55,16 +55,19 @@ To ping all target machines
 ansible -i inventory all -m ping
 
 ### check for the list of items on the target machines
-ansible -i inventory all -a "ls" ansible -i inventory webservers -a "ls"
+ansible -i inventory all -a "ls" .  # in the
+
+or
+ansible -i inventory webservers -a "ls"   # in the  the webservers group inside the inventory
 
 ### check for the list of items and hidden files on the target machines
 ansible -i inventory all -a "ls -lart"
 
-### now make directory cloud on all machines
-ansible -i inventory all -a "mkdir cloud"
+### now create directory templates on all machines
+ansible -i inventory all -a "mkdir templates"
 
 ### to create a file text.txt on all machines
-ansible -i inventory all -a "touch cloud/text.txt"
+ansible -i inventory all -a "touch templates/text.txt"
 
 ### To remove cloud folder
 ansible -i inventory all -a "rm -r -f cloud"
@@ -104,5 +107,5 @@ ansible -i inventory webservers -m service -a 'name=apache2 state=started'
 ###  to install apache on all machines
 ansible -i inventory webservers -m apt -a 'name=apache2 state=latest'
 
-Command could not run because, for multiple tasks you need to run a playbook
+### Command above could not run because, for multiple tasks you need to run a playbook
 

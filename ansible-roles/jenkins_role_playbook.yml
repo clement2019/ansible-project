@@ -3,4 +3,4 @@
   become: yes
 
   roles:
-  - apache_role
+  - jenkins_role

@@ -1,0 +1,18 @@
+- name: Creating user and installing "{{software}" playbook
+  hosts: all
+  vars:
+      softwarestate: latest
+      software: nginx
+      user: bob
+  tasks:
+  - name: Add the user "{{user}}"
+    ansible.builtin.user:
+      name: "{{user}}"
+  - name: Upgrade all apt packages
+    apt:
+      force_apt_get: yes
+      upgrade: yes
+  - name: Install the "{{softwarestate}}" "{{software}" package
+    apt:
+      name: "{{software}"
+      state: "{{softwarestate}}"

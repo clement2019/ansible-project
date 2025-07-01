@@ -1,0 +1,12 @@
+- hosts: dbservers
+  become: true
+  tasks:
+  - name: stopping jenkins software
+    apt:
+      name: jenkins
+      state: absent
+
+  - name: stop jenkins service
+    service:
+      name: jenkins
+      state: stopped

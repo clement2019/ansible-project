@@ -1,6 +1,6 @@
 SETTING UP CONNECTION BETWEEN THE CONTROLLER AND THE TARGETS MACHINES
 
-Anasible should be able to communicate to the other servers through passwordless authentication.. That's the only condition
+Ansible should be able to communicate to the other servers through passwordless authentication.. That's the only condition
 If ansible can do that it can do anything
 
 # always talk to the private ip address of the target machines
@@ -16,7 +16,7 @@ Error
 Permission denied (publickey).
 
 
-#some other documentation might say just do
+# some other documentation might say just do
  
 ssh-copy-id <private-ip>
 
@@ -31,7 +31,7 @@ ssh-keygen
 Generating public/private ed25519 key pair.
 Enter file in which to save the key (/home/ubuntu/.ssh/id_ed25519): 
 
-#if you do 
+# if you do 
 cd .ssh/
 ls
 
@@ -42,7 +42,7 @@ cat id_ed25519.pub
 
 # You can share the id_ed25519.pub.pub but never share the id_ed25519 or id_rsa
 
-#Always go with the public key to communicate with other servers
+# Always go with the public key to communicate with other servers
 
 #You dont want to communicate using the password but u can use the public key to talk to the target servers using the ansible passwordless methods
 
@@ -56,7 +56,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBKeIzvy7K1dNWsbFzAHDBjmlpQOOQ0QIGLf1bicKH4v
 Copy the above and take to the target server through ssh connection and 
 
 
-#once on the target machine do 
+# once on the target machine do 
 
 ssh-keygen 
 
@@ -73,10 +73,10 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBKeIzvy7K1dNWsbFzAHDBjmlpQOOQ0QIGLf1bicKH4v
 
 
 
-#Save the file
+# Save the file
 
 
-#Now go back to the ansible controller and do ssh again to the target machine
+# Now go back to the ansible controller and do ssh again to the target machine
 
 
 
@@ -93,7 +93,7 @@ Cd /etc/sudoers.d
 Ls
 90-cloud-init-users
 
-#go into the file
+# go into the file
 Vim 90-cloud-init-users
 
 # User rules for ubuntu
@@ -107,14 +107,14 @@ If the above its ok check ifconfig on all the target machines and the ansible co
 sudo apt install net-tools
 ==============
 
-#now lets go back to the ansible controller
+# now lets go back to the ansible controller
 
 cd .ssh/
 ssh <ipadress-of-targetsmachies>
 Exit and go back to the controller
 Do the same thing for the green machines
 ===============
-#We have confirm we can ssh into all target machines but lets do it with ansible for now if we can ping these machines
+# We have confirm we can ssh into all target machines but lets do it with ansible for now if we can ping these machines
 
 ansible all -i inventory -m ping
 
@@ -143,14 +143,14 @@ ansible -i inventory all -a "ls -lart"
 # to create a file text.txt on all machines
 ansible -i inventory all -a "touch text.txt"
 
-#now make directory cloud on all machines
+# now make directory cloud on all machines
 
 ansible -i inventory all -a "mkdir cloud"
 #find the list of items in the target machines
 
 ansible -i inventory all -a "ls"
 
-#remove the cloud folder on all machines
+# remove the cloud folder on all machines
 ansible -i inventory all -a "rm -r cloud"
 
 #confirm if done
@@ -206,16 +206,16 @@ ubuntu@ip-172-31-4-109:~$ ansible -i inventory webservers -m ping
 To put simply, Ansible ad hoc commands are one-liner Linux shell commands and playbooks are like a shell script, a collective of many commands with logic.
 Ansible ad hoc commands come handy when you want to perform a quick task.
 task
-#To check the disk space on all hosts in an inventory file
+# To check the disk space on all hosts in an inventory file
 ansible -i inventory all -m shell -a 'df -h'
 Or 
 ansible -i inventory webservers -m shell -a 'df -h'
-#ansible ad hoc command to check the free memory or memory usage of hosts
+# ansible ad hoc command to check the free memory or memory usage of hosts
 
 ansible -i inventory all -a "free -m"
 
 
-#To find ids on host machines
+# to find ids on host machines
 
 ansible -i inventory webservers -m shell -a 'id'
 
