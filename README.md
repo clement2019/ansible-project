@@ -1,3 +1,5 @@
+### Ansible-Project
+
 #### Welcome to an Ansible project,In this project i showed the integration of aws services, terraform ansible.It guides you through the workings of ansible adhoc commands, ansible playbook, ansible handlers, ansible galaxy roles, ansible optimisation using ansible varibles.Ansible uses the push mode configuration model mechanism.It showcases how ansible pushes adhoc commands for single task and in case of multiple task using ansible playbook all to remote servers.The ansible controlller and the remote servers was provisioned using terraform(iac)
 
 ### Project Directories 📂
@@ -44,7 +46,7 @@ formart:
 aws s3 ls
 aws sts get-caller-identity
 
-### After cloning the project carry out this comamnd
+### After cloning the project carry out these commanda
 cd ansible-project
 ### now 
 cd infra
@@ -71,6 +73,6 @@ terraform apply --auto-approve
 
 ![Image](https://github.com/user-attachments/assets/2e1a8989-4925-446a-a39c-de7d2d17403c)
 
-### cd to the doanloads folder locally on the vscode to connect to the aisnle machines as shown below
+### cd to the downloads folder locally on the vscode to connect to the aisnle machines as shown below
 
 ![Image](https://github.com/user-attachments/assets/467f741a-6f14-4c95-8ae7-e07196351bd8)
