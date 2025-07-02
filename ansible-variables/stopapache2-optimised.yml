@@ -1,4 +1,4 @@
-- name: removal of "{{appname}}"
+- name: Removal of "{{appname}}"
   hosts: all
   become: true
   vars:

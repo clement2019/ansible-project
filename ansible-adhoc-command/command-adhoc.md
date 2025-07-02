@@ -55,7 +55,7 @@ To ping all target machines
 ansible -i inventory all -m ping
 
 ### check for the list of items on the target machines
-ansible -i inventory all -a "ls" .  # in the
+ansible -i inventory all -a "ls" 
 
 or
 ansible -i inventory webservers -a "ls"   # in the  the webservers group inside the inventory

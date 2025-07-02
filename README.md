@@ -234,42 +234,25 @@ ansible -i inventory webservers -m copy -a "src=/tmp/my-file.txt dest=/tmp/my-fi
 
 ### The first task using ansible to install nginx webserver on all the remote machines, obviousely thisn is a multiple task so use the ansible playbook below
 
-- hosts: all
-  become: true
-  tasks:
-  - name: installing nginx software
-    apt:
-      name: nginx
-      state: present
-
-  - name: start nginx service
-    service:
-      name: nginx
-      state: started     
+    ![Image](https://github.com/user-attachments/assets/1c37c114-893c-446b-9ffe-5a9b4a036d51)     
 
 
-      ### Now run the command below
+### Now run the command below
       ansible-playbook -i inventory startnginx.yml
 
       ![Image](https://github.com/user-attachments/assets/ac85fcd7-9cb7-4d50-9cc0-76138faa6a0b)
 
 
-    ### Now confirm if nginx is running on all servers, go to the terminal of the remote machine and run below comamnd 
+### Now confirm if nginx is running on all servers, go to the terminal of the remote machine and run below comamnd 
 
      ![Image](https://github.com/user-attachments/assets/bf1fb027-2ad2-4e44-a2e1-6d0c8aa48932)
 
-      ### To stop the nginx from running on all servers create theis file stopnginx.yml in ansible controler
+### To stop the nginx from running on all servers create theis file stopnginx.yml in ansible controler
 
-  - hosts: all
-  become: true
-  tasks:
-  - name: stop nginx services
-    service:
-     name: nginx
-     state: stopped
+ 
+        ![Image](https://github.com/user-attachments/assets/6fe9e33f-ebd1-43d9-b41f-3527403e5454)
 
-
-     ### run this command below
+### run this command below
 
      ansible-playbook -i inventory stopnginx.yml
 
@@ -293,47 +276,9 @@ ansible -i inventory webservers -m copy -a "src=/tmp/my-file.txt dest=/tmp/my-fi
 
 touch jenkins.yml
 
-- hosts: dbservers
-  become: true
-  remote_user: ubuntu
-  tasks:
-   - name: updating apt and cache on all ubuntu servers
-     apt:
-       upgrade: yes
-       update_cache: yes
-   - name: ensure the jenkins apt repository key is installed
-     apt_key:
-       url: https://pkg.jenkins.io/debian/jenkins.io-2023.key 
-       state: present
+![Image](https://github.com/user-attachments/assets/579fcaf4-1192-4762-9241-1088e70239f6)
 
-
-   - name: setting up jenkins repo
-      
-     apt_repository: 
-       repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
-       state: present
-       
-   - name: ensure the jenkins apt repository key is installed
-     apt_key:
-       url: https://pkg.jenkins.io/debian/jenkins.io-2023.key 
-       state: present
-
-   - name: Install OpenJDK Java
-     apt:
-       name: "{{ item }}"
-       state: present
-     with_items:
-       openjdk-17-jre
-       
-   - name: installing jenkins software   #it takes some time while downloading jenkins be Subtle
-     apt:
-       name: jenkins
-       state: present
-
-   - name: start the service
-     service:
-       name: jenkins
-       state: started
+ ![Image](https://github.com/user-attachments/assets/07feb6ff-92f7-48f2-b8d7-efdb69fa092a)  
 
 
     ### run this command below
@@ -348,6 +293,45 @@ touch jenkins.yml
 http://3.9.118.137:8080/login?from=%2F
 
     ![Image](https://github.com/user-attachments/assets/04f1d0aa-0836-45e5-82cf-812d3a6c6360)
+
+
+# confirm if JENKINS was installed on the remote server using  the command below
+
+sudo systemctl status jenkins.service
+
+sudo systemctl status jenkins
+
+curl localhost jenkins
+
+### Troubleshooting
+
+sudo journalctl -u jenkins
+
+
+#### Now to stop jenkins run this command below
+
+![Image](https://github.com/user-attachments/assets/9f352fd6-ae5e-4346-b825-37ccd53203c5)
+
+ ### =====================================
+    ANSIBLE VARIABLE FOR CODE OPTIMISATION
+### ======================================
+Ansible code or yaml files optimisation is very key and helps to manage and optimised our code. Am example is given below installing appache2 
+
+![Image](https://github.com/user-attachments/assets/bb3086f3-44be-4b54-99ea-167d260f6ab2)
+
+
+![Image](https://github.com/user-attachments/assets/49020e24-47ab-47b0-bd8a-cd199730814d)
+
+
+### No to remove the appache from the remote machines run this optmised code
+
+![Image](https://github.com/user-attachments/assets/331b38c8-47dc-4356-a7d8-303c58503fc8)
+
+
+#### Creating user, group, dowwnloding files and installing appache 
+
+
+![Image](https://github.com/user-attachments/assets/45a35c50-04fc-4e3e-9ee7-66b4f4a8208f)
 
 
    ### no cd to the infra folder

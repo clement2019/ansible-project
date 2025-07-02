@@ -23,7 +23,7 @@
      apt:
        name: "{{ item }}"
        state: present
-     with_items:
+     with_items: 
        openjdk-17-jre
        
    - name: installing jenkins software   #it takes some time while downloading jenkins be Subtle

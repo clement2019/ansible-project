@@ -295,7 +295,7 @@ vim httpd.yml
      state: started
 ansible-playbook -i inventory httpd.yml 
 
-#now to stop the service on nginx
+# now to stop the service on nginx
 
 Vi stoopnginx.yml
 
