@@ -336,11 +336,59 @@ Ansible code or yaml files optimisation is very key and helps to manage and opti
 ### =====================================
     ANSIBLE ROLES FOR MANAGING HUGE YAML FILES
 ### ======================================
+#### Now on the ansible controller install a tree
+
+sudo apt install tree
 
 
+#### Managing your files is key in asible using ansible roles to create a role  for an apache2 installation in ansible run the comand below
+
+ansible-galaxy init apache_roles
+
+### usingbthe tree to display the folders and files created aboe
+tree apache_roles
+
+![Image](https://github.com/user-attachments/assets/d0508cb4-b4d2-4158-93f4-e0769e8adf8e)
+
+cd defaults
+ls
+
+vi main.yml
+
+# defaults file for apache_role
+apache_port: 80
+
+cd tasks
+
+ls
+
+vi main.yml
+
+![Image](https://github.com/user-attachments/assets/190b2515-8b1d-4208-80bd-bc470784746f)
+
+cd templates
+ls
 
 
-   ### no cd to the infra folder
+vi index.html.j2
+
+![Image](https://github.com/user-attachments/assets/1f7a8384-a983-459e-9cae-a4fcfa7bd839)
+
+### inside the ansible root directory
+
+vi apache_playbook_role.yaml
+
+![Image](https://github.com/user-attachments/assets/ff09addf-b8c1-4b98-8860-194c1e0892b6)
+
+# Now to lunch  apache_role on the remote servers run the command below
+
+ansible-palybook -i inventory apache_playbook_role.yaml
+
+ ### =====================================
+CLEANING UP RESOURCES CREATED WITH TERRAFORM
+### ======================================
+
+   ### now cd to the infra folder
    cd infra
 ### now to clean up run the terraform destroy command below
 
