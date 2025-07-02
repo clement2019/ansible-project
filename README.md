@@ -93,14 +93,14 @@ ssh-keygen
 sudo apt install net-tools
 ==============
 
-# now lets go back to the ansible controller
+#### now lets go back to the ansible controller
 
 cd .ssh/
 ubuntu@ip-10-0-1-202:~/.ssh$ ls
 
 authorized_keys  id_rsa  id_rsa.pub
 
-# Now cat the public key
+#### Now cat the public key
 
 cat id_rsa.pub
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKCmrwNATFtTm8AZFfHRFIsBW67jJoNr//YTsjUr81RhN/esMFdPbCOy4w0lCT22dqpV8AVDCOPTYh72s9/W/0d/lJzoVhmr9MZVyIjIZXwwc1LDcdLPcm7AD1F3fRIF7Clskqcf2R4a7r6zslUHHIFNjKCSOEHl3AD4jbTBpKxVybDAP2viEjnmonnBSmHIHUF/5VYXjPn1FU4fr0dhQEkf0d87H8P7GkzLdPrAdPbet31ItvceZcX6NocSzTa3P6E1bkyEk3tT9b8yg6HlxW56rDTUE1LrT/sfTKasRguaKPXuMfovpnestscgBeVqbYHaJAinGADBdvxKtwxSAMH7t+wRMziZT1xLLOTSZpL9AI/TtrVrIsZZZA+y+ZHw9GCHzUx5LgPPy4l1jBGBa7wDW6v0Ekjpegl/mqFbOfPD/VOTG0yKCQYUf+ns57PZxS5oWhwN9CTOIGcUJdxJXcaIbc7OXCLaNuEo4ynmVCcJzfqai547QAqzGnwDaGZIc= ubuntu@ip-10-0-1-202
@@ -156,13 +156,13 @@ ssh 10.0.3.254
 ### run the exit below  to go back
 exit
 
-# We can now confirm we can ssh into all the target(remote) machines but lets do it with ansible for now if we can ping these machines
+#### We can now confirm we can ssh into all the target(remote) machines but lets do it with ansible for now if we can ping these machines
 
 ansible all -i inventory -m ping
 
 ![Image](https://github.com/user-attachments/assets/86fff424-804d-4693-a414-7d4e42798811)
 
-# the command tells ansible that this is an inventory files and the ping shows the type of module am using
+#### the command tells ansible that this is an inventory files and the ping shows the type of module am using
 
 ==================
 In shell u cal iot shell script
@@ -189,7 +189,7 @@ ansible -i inventory all -a "mkdir cloud"
 
 ansible -i inventory all -a "ls"
 
-# remove the cloud folder on all machines
+#### remove the cloud folder on all machines
 ansible -i inventory all -a "rm -r cloud"
 
 ### confirm if done
@@ -198,30 +198,30 @@ ansible -i inventory all -a "ls"
 ### So i don't always have to do 
 vi shell.sh
 
-### So my main point is that u dont have to write playbooks all the time u can also write from ansible cli
-## Understanding Ad-hoc commands in Ansible
+#### So my main point is that u dont have to write playbooks all the time u can also write from ansible cli
+#### Understanding Ad-hoc commands in Ansible
 To put simply, Ansible ad hoc commands are one-liner Linux shell commands and playbooks are like a shell script, a collective of many commands with logic.
 Ansible ad hoc commands come handy when you want to perform a quick task.
 task
-# To check the disk space on all hosts in an inventory file
+#### To check the disk space on all hosts in an inventory file
 ansible -i inventory all -m shell -a 'df -h'
 Or 
 ansible -i inventory webservers -m shell -a 'df -h'
-# ansible ad hoc command to check the free memory or memory usage of hosts
+#### ansible ad hoc command to check the free memory or memory usage of hosts
 
 ansible -i inventory all -a "free -m"
 
 
-# to find ids on host machines
+#### to find ids on host machines
 
 ansible -i inventory webservers -m shell -a 'id'
 
 
-# to install apache on all machines
+### To install apache on all machines
 
 ansible -i inventory webservers -m apt -a 'name=apache2 state=present'
 
-# first create a file touch /tmp/my-file.txt on the control server and push it to all #machines
+### first create a file touch /tmp/my-file.txt on the control server and push it to all #machines
 
 touch /tmp/my-file.txt 
 
@@ -255,19 +255,19 @@ ansible -i inventory webservers -m copy -a "src=/tmp/my-file.txt dest=/tmp/my-fi
 
      ansible-playbook -i inventory stopnginx.yml
 
-     ### Now confirm if nginx has been stopped on all servers, go to the terminal of the remote machine and run below comamnd 
+### Now confirm if nginx has been stopped on all servers, go to the terminal of the remote machine and run below comamnd 
 
      $ sudo systemctl ststud nginx
 
      ![Image](https://github.com/user-attachments/assets/8697edb5-907f-4c68-b6c3-68162c6eb984)
 
 
-    ### to remove nginx from the remote machine colpletely, run thei command
+### to remove nginx from the remote machine colpletely, run thei command
 
    sudo systemctl purge nginx
 
 ### ====================================================
-    ANOTHE ANSIBLE PLAYBOOK TASK TO INSTALL JENKINS ON ALL MACHINES
+    ANOTHER ANSIBLE PLAYBOOK TASK TO INSTALL JENKINS ON ALL MACHINES
 ### =================================================================
 
 ### make sure you are on the ansible controller machine 
@@ -280,7 +280,7 @@ touch jenkins.yml
  ![Image](https://github.com/user-attachments/assets/07feb6ff-92f7-48f2-b8d7-efdb69fa092a)  
 
 
-    ### run this command below
+### run this command below
 
     ansible-playbook -i inventory jenkins.yml
 
@@ -294,7 +294,7 @@ http://3.9.118.137:8080/login?from=%2F
     ![Image](https://github.com/user-attachments/assets/04f1d0aa-0836-45e5-82cf-812d3a6c6360)
 
 
-# confirm if JENKINS was installed on the remote server using  the command below
+#### confirm if JENKINS was installed on the remote server using  the command below
 
 sudo systemctl status jenkins.service
 
@@ -312,7 +312,7 @@ sudo journalctl -u jenkins
 ![Image](https://github.com/user-attachments/assets/9f352fd6-ae5e-4346-b825-37ccd53203c5)
 
  ### =====================================
-    ANSIBLE VARIABLE FOR CODE OPTIMISATION
+    ANSIBLE VARIABLES FOR CODE OPTIMISATION
 ### ======================================
 Ansible code or yaml files optimisation is very key and helps to manage and optimised our code. Am example is given below installing appache2 
 
@@ -331,6 +331,13 @@ Ansible code or yaml files optimisation is very key and helps to manage and opti
 
 
 ![Image](https://github.com/user-attachments/assets/45a35c50-04fc-4e3e-9ee7-66b4f4a8208f)
+
+
+### =====================================
+    ANSIBLE ROLES FOR MANAGING HUGE YAML FILES
+### ======================================
+
+
 
 
    ### no cd to the infra folder
