@@ -234,23 +234,22 @@ ansible -i inventory webservers -m copy -a "src=/tmp/my-file.txt dest=/tmp/my-fi
 
 ### The first task using ansible to install nginx webserver on all the remote machines, obviousely thisn is a multiple task so use the ansible playbook below
 
-    ![Image](https://github.com/user-attachments/assets/1c37c114-893c-446b-9ffe-5a9b4a036d51)     
+![Image](https://github.com/user-attachments/assets/1c37c114-893c-446b-9ffe-5a9b4a036d51)     
 
 
 ### Now run the command below
       ansible-playbook -i inventory startnginx.yml
-
-      ![Image](https://github.com/user-attachments/assets/ac85fcd7-9cb7-4d50-9cc0-76138faa6a0b)
+![Image](https://github.com/user-attachments/assets/ac85fcd7-9cb7-4d50-9cc0-76138faa6a0b)
 
 
 ### Now confirm if nginx is running on all servers, go to the terminal of the remote machine and run below comamnd 
 
-     ![Image](https://github.com/user-attachments/assets/bf1fb027-2ad2-4e44-a2e1-6d0c8aa48932)
+![Image](https://github.com/user-attachments/assets/bf1fb027-2ad2-4e44-a2e1-6d0c8aa48932)
 
 ### To stop the nginx from running on all servers create theis file stopnginx.yml in ansible controler
 
  
-        ![Image](https://github.com/user-attachments/assets/6fe9e33f-ebd1-43d9-b41f-3527403e5454)
+![Image](https://github.com/user-attachments/assets/6fe9e33f-ebd1-43d9-b41f-3527403e5454)
 
 ### run this command below
 
