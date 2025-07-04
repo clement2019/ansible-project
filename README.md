@@ -1,6 +1,6 @@
 ### Introduction
 
-Welcome to an Ansible project,In this project i showed the integration of aws services, terraform ansible.It guides you through the workings of ansible adhoc commands, ansible playbook, ansible handlers, ansible galaxy roles, ansible optimisation using ansible varibles.Ansible uses the push mode configuration model mechanism.It showcases how ansible pushes adhoc commands for single task and in case of multiple task using ansible playbook all to remote servers.
+Welcome to an ansible project,in this project i showed the integration of aws services, terraform and ansible.It guides you through the workings of ansible adhoc commands, ansible playbook, ansible handlers, ansible galaxy roles, ansible optimisation using ansible variables.Ansible uses the push mode configuration model mechanism,it showcases how ansible pushes adhoc commands for single task and in case of multiple task using ansible playbook .These tasks are pushedor sent  from the ansibe controllers and implemented on all the remote servers.
 
 The ansible controlller and the remote servers was provisioned using terraform(iac).Ansible is agentless and it works with passwordless connection unlike other configuration management tools like chef and puppet that uses pull mode configuration
 
