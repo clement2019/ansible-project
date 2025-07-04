@@ -1,4 +1,4 @@
-### Ansible-Project
+### Introduction
 
 #### Welcome to an Ansible project,In this project i showed the integration of aws services, terraform ansible.It guides you through the workings of ansible adhoc commands, ansible playbook, ansible handlers, ansible galaxy roles, ansible optimisation using ansible varibles.Ansible uses the push mode configuration model mechanism.It showcases how ansible pushes adhoc commands for single task and in case of multiple task using ansible playbook all to remote servers.The ansible controlller and the remote servers was provisioned using terraform(iac).Ansible is agentless and it works with passwordless connection unlike other configuration management tools like chef and puppet that uses pull mode configuration
 
@@ -355,7 +355,7 @@ ls
 
 vi main.yml
 
-# defaults file for apache_role
+### defaults file for apache_role
 apache_port: 80
 
 cd tasks
@@ -370,19 +370,19 @@ cd templates
 ls
 
 
-vi index.html.j2
+ vi index.html.j2
 
-![Image](https://github.com/user-attachments/assets/1f7a8384-a983-459e-9cae-a4fcfa7bd839)
+ ![Image](https://github.com/user-attachments/assets/1f7a8384-a983-459e-9cae-a4fcfa7bd839)
 
 ### inside the ansible root directory
 
-vi apache_playbook_role.yaml
+ vi apache_playbook_role.yaml
 
-![Image](https://github.com/user-attachments/assets/ff09addf-b8c1-4b98-8860-194c1e0892b6)
+  ![Image](https://github.com/user-attachments/assets/  ff09addf-b8c1-4b98-8860-194c1e0892b6)
 
-# Now to lunch  apache_role on the remote servers run the command below
+### Now to lunch  apache_role on the remote servers run the command below
 
-ansible-palybook -i inventory apache_playbook_role.yaml
+ansible-playbook -i inventory apache_playbook_role.yaml
 
  ### =====================================
 CLEANING UP RESOURCES CREATED WITH TERRAFORM
@@ -390,7 +390,7 @@ CLEANING UP RESOURCES CREATED WITH TERRAFORM
 
    ### now cd to the infra folder
    cd infra
-### now to clean up run the terraform destroy command below
+  ### now to clean up run the terraform destroy command below
 
 terraform destroy --auto-approve
 
